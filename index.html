@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Автосервис Мотор — Алматы</title>
+<meta name="description" content="Диагностика, ТО и ремонт автомобилей в Алматы. Смета до начала работ, запись онлайн.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#E9EDF0;
+  --paper:#F7F8F6;
+  --ink:#0F1B26;
+  --steel:#4A5A67;
+  --text-soft:#33424F;
+  --line:#D3DBE1;
+  --accent:#F26B1D;      /* главный цвет: меняйте здесь */
+  --accent-text:#B83A0B; /* тот же цвет, но для текста на светлом фоне */
+  --on-dark:#E9EDF0;
+  --on-dark-soft:#C9D4DC;
+  --display:'Oswald',sans-serif;
+  --body:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);line-height:1.5}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding-left:24px;padding-right:24px}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(32px,5vw,44px);line-height:1.1}
+
+/* шапка и первый экран */
+.top{background:var(--ink);color:var(--on-dark)}
+.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:20px;padding-bottom:20px}
+.logo{font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:.14em;display:flex;align-items:center;gap:12px}
+.logo i{display:inline-block;width:14px;height:28px;background:var(--accent)}
+.menu{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:15px;font-weight:500}
+.phone{font-weight:700}
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:48px;padding-top:48px;padding-bottom:72px}
+.hero-text{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9FB0BD}
+.hero h1{font-family:var(--display);font-weight:600;font-size:clamp(36px,6vw,64px);line-height:1.04;text-wrap:balance}
+.lead{margin:0;font-size:18px;line-height:1.6;color:var(--on-dark-soft);max-width:520px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;font-family:inherit;font-weight:700;font-size:16px;padding:16px 28px;border:0;cursor:pointer;min-height:48px}
+.btn-main{background:var(--accent);color:var(--ink)}
+.btn-line{border:2px solid var(--steel);color:var(--on-dark);padding:14px 26px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* заказ-наряд */
+.order{flex:1 1 360px;min-width:0;max-width:460px;background:var(--paper);color:var(--ink);padding:28px;display:flex;flex-direction:column;gap:16px}
+.order-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:12px}
+.order-head b{font-family:var(--display);font-weight:600;font-size:22px;letter-spacing:.06em}
+.order-head span{font-size:13px;color:var(--steel)}
+.row{display:flex;justify-content:space-between;gap:16px;font-size:15px}
+.row b{white-space:nowrap}
+.order-list{display:flex;flex-direction:column;gap:10px}
+.order-total{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--ink);padding-top:12px}
+.order-total strong{font-family:var(--display);font-weight:700;font-size:30px}
+.order small{font-size:13px;line-height:1.5;color:var(--steel)}
+
+/* блоки */
+section{padding-top:56px;padding-bottom:24px;display:flex;flex-direction:column;gap:28px}
+#services{padding-top:80px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--paper);padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.card h3{font-family:var(--display);font-weight:600;font-size:24px}
+.card p{margin:0;font-size:15px;line-height:1.55;color:var(--text-soft)}
+.card .from{margin-top:auto;font-size:14px;font-weight:700;color:var(--accent-text)}
+.note{margin:0;font-size:16px;line-height:1.6;color:var(--text-soft);max-width:640px}
+.table-box{overflow-x:auto;background:var(--paper)}
+table{width:100%;min-width:560px;border-collapse:collapse;font-size:16px}
+th{text-align:left;padding:16px 20px;font-family:var(--display);font-weight:600;letter-spacing:.06em;font-size:14px;border-bottom:2px solid var(--ink)}
+td{padding:16px 20px;border-bottom:1px solid var(--line)}
+td.time{color:var(--steel);white-space:nowrap}
+td.price,th.price{text-align:right;white-space:nowrap}
+td.price{font-weight:700}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.step{display:flex;flex-direction:column;gap:12px;border-top:4px solid var(--ink);padding-top:16px;min-width:0}
+.step .n{font-family:var(--display);font-weight:600;font-size:20px;color:var(--accent-text)}
+.step h3{font-family:var(--display);font-weight:600;font-size:26px}
+.step p{margin:0;font-size:15px;line-height:1.6;color:var(--text-soft)}
+
+/* запись */
+.booking{background:var(--ink);color:var(--on-dark);margin-top:56px}
+.booking-in{display:flex;flex-wrap:wrap;gap:48px;padding-top:64px;padding-bottom:64px}
+.booking-text{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.booking-text p{margin:0;font-size:17px;line-height:1.6;color:var(--on-dark-soft)}
+.contacts{font-size:15px;line-height:1.8;color:var(--on-dark-soft)}
+.form{flex:1 1 380px;min-width:0;background:var(--paper);color:var(--ink);padding:28px;display:flex;flex-direction:column;gap:20px}
+.field{display:flex;flex-direction:column;gap:8px;border:0;padding:0;margin:0}
+.field label,.field legend{font-size:14px;font-weight:700;padding:0}
+.field input{font-family:inherit;font-size:16px;padding:14px;border:2px solid var(--steel);background:#fff;color:var(--ink);min-height:48px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{font-family:inherit;font-size:14px;font-weight:700;padding:10px 16px;border:2px solid var(--steel);background:#fff;color:var(--ink);cursor:pointer;min-height:44px}
+.pill[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.done{display:none;flex-direction:column;gap:12px}
+.done h3{font-family:var(--display);font-weight:600;font-size:28px}
+.done p{margin:0;font-size:16px;line-height:1.6;color:var(--text-soft)}
+.form.sent .fields{display:none}
+.form.sent .done{display:flex}
+.fields{display:flex;flex-direction:column;gap:20px}
+
+/* вопросы и подвал */
+.faq{display:flex;flex-direction:column;gap:12px;max-width:820px}
+details{background:var(--paper);padding:20px 24px}
+summary{cursor:pointer;font-weight:700;font-size:17px}
+details p{margin:12px 0 0;font-size:15px;line-height:1.65;color:var(--text-soft)}
+.faq-sec{padding-top:72px;padding-bottom:40px}
+footer{background:var(--ink);color:#9FB0BD}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;padding-top:28px;padding-bottom:28px}
+.foot b{font-family:var(--display);letter-spacing:.14em;color:var(--on-dark)}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+    <div class="logo"><i></i>МОТОР</div>
+    <nav class="menu" aria-label="Разделы сайта">
+      <a href="#services">Услуги</a>
+      <a href="#prices">Цены</a>
+      <a href="#how">Как проходит ремонт</a>
+      <a href="#booking">Запись</a>
+    </nav>
+    <!-- ЗАМЕНИТЕ номер в тексте и в href -->
+    <a class="phone" href="tel:+70000000000">+7 (727) 000-00-00</a>
+  </div>
+
+  <div class="wrap hero">
+    <div class="hero-text">
+      <div class="eyebrow">Автосервис в Алматы</div>
+      <h1>Сначала диагностика и смета. Ремонт только после вашего «да».</h1>
+      <p class="lead">Обслуживаем легковые авто и кроссоверы. Перед работой называем стоимость по каждой позиции, замененные детали возвращаем.</p>
+      <div class="actions">
+        <a class="btn btn-main" href="#booking">Записаться на диагностику</a>
+        <a class="btn btn-line" href="#prices">Посмотреть цены</a>
+      </div>
+    </div>
+
+    <aside class="order" aria-label="Пример заказ-наряда">
+      <div class="order-head"><b>ЗАКАЗ-НАРЯД</b><span>пример</span></div>
+      <div class="order-list">
+        <div class="row"><span>Компьютерная диагностика</span><b>8 000 ₸</b></div>
+        <div class="row"><span>Замена масла и фильтра</span><b>6 500 ₸</b></div>
+        <div class="row"><span>Колодки передние, работа</span><b>9 000 ₸</b></div>
+        <div class="row"><span>Развал-схождение</span><b>12 000 ₸</b></div>
+      </div>
+      <div class="order-total"><b>Итого по работам</b><strong>35 500 ₸</strong></div>
+      <small>Запчасти считаем отдельно, до начала работ. Цены в примере условные.</small>
+    </aside>
+  </div>
+</header>
+
+<main>
+  <section id="services" class="wrap">
+    <h2>Что делаем</h2>
+    <div class="cards">
+      <article class="card"><h3>Техобслуживание</h3><p>Масло, фильтры, жидкости, свечи. Работаем по регламенту производителя, интервал обычно 10 000 км.</p><div class="from">от 6 500 ₸</div></article>
+      <article class="card"><h3>Диагностика</h3><p>Компьютерная проверка ошибок, осмотр на подъёмнике, письменное заключение со списком работ.</p><div class="from">от 8 000 ₸</div></article>
+      <article class="card"><h3>Тормозная система</h3><p>Колодки, диски, суппорты, прокачка жидкости. Проверяем износ до замены.</p><div class="from">от 9 000 ₸</div></article>
+      <article class="card"><h3>Подвеска и рулевое</h3><p>Стойки, рычаги, сайлентблоки, шаровые, рулевые наконечники. Стук и увод руля.</p><div class="from">от 7 000 ₸</div></article>
+      <article class="card"><h3>Развал-схождение</h3><p>Регулировка углов колёс на стенде, распечатка результатов до и после.</p><div class="from">от 12 000 ₸</div></article>
+      <article class="card"><h3>Двигатель и ГРМ</h3><p>Замена ремня или цепи ГРМ, ремонт системы охлаждения, устранение течей.</p><div class="from">от 35 000 ₸</div></article>
+    </div>
+  </section>
+
+  <section id="prices" class="wrap">
+    <h2>Цены на работы</h2>
+    <p class="note">Цена за работу без запчастей. Точную сумму называем после осмотра, для кроссоверов и внедорожников она может быть выше.</p>
+    <div class="table-box">
+      <table>
+        <thead><tr><th>РАБОТА</th><th>ВРЕМЯ</th><th class="price">ЦЕНА</th></tr></thead>
+        <tbody>
+          <tr><td>Компьютерная диагностика</td><td class="time">40 мин</td><td class="price">от 8 000 ₸</td></tr>
+          <tr><td>Замена масла и масляного фильтра</td><td class="time">40 мин</td><td class="price">от 6 500 ₸</td></tr>
+          <tr><td>Замена передних тормозных колодок</td><td class="time">1 час</td><td class="price">от 9 000 ₸</td></tr>
+          <tr><td>Замена передних стоек амортизаторов</td><td class="time">2 часа</td><td class="price">от 18 000 ₸</td></tr>
+          <tr><td>Развал-схождение</td><td class="time">1 час</td><td class="price">от 12 000 ₸</td></tr>
+          <tr><td>Замена ремня ГРМ с роликами</td><td class="time">4 часа</td><td class="price">от 35 000 ₸</td></tr>
+          <tr><td>Замена свечей зажигания</td><td class="time">30 мин</td><td class="price">от 4 000 ₸</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="how" class="wrap">
+    <h2>Как проходит ремонт</h2>
+    <div class="steps">
+      <div class="step"><div class="n">Шаг 1</div><h3>Запись и приёмка</h3><p>Вы записываетесь по телефону или через форму. На приёмке мастер слушает вас и осматривает машину вместе с вами.</p></div>
+      <div class="step"><div class="n">Шаг 2</div><h3>Диагностика и смета</h3><p>Находим причину, считаем работы и запчасти по позициям. Начинаем только после вашего согласия.</p></div>
+      <div class="step"><div class="n">Шаг 3</div><h3>Ремонт и выдача</h3><p>Делаем работу, показываем замененные детали, отдаём заказ-наряд и даём гарантию на работы.</p></div>
+    </div>
+  </section>
+
+  <section id="booking" class="booking" style="padding:0;display:block">
+    <div class="wrap booking-in">
+      <div class="booking-text">
+        <h2>Запишитесь на удобное время</h2>
+        <p>Оставьте номер, мы перезвоним в рабочее время и подберём слот.</p>
+        <!-- ЗАМЕНИТЕ на реальные данные -->
+        <div class="contacts">[АДРЕС СЕРВИСА]<br>[ГРАФИК РАБОТЫ]<br>+7 (727) 000-00-00</div>
+      </div>
+
+      <form class="form" id="booking-form" novalidate>
+        <div class="fields">
+          <div class="field">
+            <label for="f-name">Имя</label>
+            <input id="f-name" name="name" type="text" placeholder="Как к вам обращаться" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="f-phone">Телефон</label>
+            <input id="f-phone" name="phone" type="tel" placeholder="+7" autocomplete="tel" required>
+          </div>
+          <fieldset class="field">
+            <legend>Что нужно сделать</legend>
+            <div class="pills" id="pills">
+              <button type="button" class="pill" aria-pressed="true">Диагностика</button>
+              <button type="button" class="pill" aria-pressed="false">Техобслуживание</button>
+              <button type="button" class="pill" aria-pressed="false">Тормоза</button>
+              <button type="button" class="pill" aria-pressed="false">Подвеска</button>
+              <button type="button" class="pill" aria-pressed="false">Развал-схождение</button>
+              <button type="button" class="pill" aria-pressed="false">Другое</button>
+            </div>
+          </fieldset>
+          <button class="btn btn-main" type="submit">Отправить заявку</button>
+        </div>
+        <div class="done" role="status">
+          <h3>Заявка принята</h3>
+          <p>Спасибо! Мы перезвоним вам в рабочее время.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="wrap faq-sec">
+    <h2>Частые вопросы</h2>
+    <div class="faq">
+      <details><summary>Сколько стоит диагностика и входит ли она в ремонт?</summary><p>Диагностика оплачивается отдельно. Если вы делаете ремонт у нас, её стоимость можно вычесть из суммы работ. Условие укажите своё.</p></details>
+      <details><summary>Можно ли привезти свои запчасти?</summary><p>Да, но гарантия на такие детали не распространяется, а работа оплачивается по обычному прайсу.</p></details>
+      <details><summary>Вы возвращаете старые детали?</summary><p>Да. Замененные детали отдаём при выдаче автомобиля, если вы не откажетесь от них.</p></details>
+      <details><summary>Какая гарантия на работы?</summary><p>[УКАЖИТЕ СРОК И КИЛОМЕТРАЖ]. Условия гарантии записываются в заказ-наряде.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <b>МОТОР</b>
+    <span>Демо-макет сайта. Название, цены и контакты условные.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var pills = document.querySelectorAll('#pills .pill');
+  var chosen = 'Диагностика';
+
+  pills.forEach(function (p) {
+    p.addEventListener('click', function () {
+      pills.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      p.setAttribute('aria-pressed', 'true');
+      chosen = p.textContent;
+    });
+  });
+
+  var form = document.getElementById('booking-form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var phone = document.getElementById('f-phone');
+    if (!phone.value.trim()) { phone.focus(); return; }
+
+    var data = {
+      name: document.getElementById('f-name').value.trim(),
+      phone: phone.value.trim(),
+      service: chosen
+    };
+
+    // ЗДЕСЬ подключается отправка заявки (например, в Telegram через
+    // небольшой сервер). Пока форма только показывает сообщение об успехе.
+    // Пример: fetch('https://ВАШ-АДРЕС/заявка', { method:'POST',
+    //   headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
+    console.log('Заявка:', data);
+
+    form.classList.add('sent');
+  });
+})();
+</script>
+</body>
+</html>
